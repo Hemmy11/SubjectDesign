@@ -19,12 +19,13 @@ public class Competiton {
 		this.winCom = winCom;
 	}
 	public Competiton() { //无参构造方法
-		   this.winCom=true;//true的话，默认是first选手赢了，后面再改
+
 	}
-      public Competiton(Date comTime,Competitor first,Competitor second){
+      public Competiton(Date comTime,Competitor first,Competitor second,boolean winCom){
     	  this.comTime=comTime;
     	  this.first=first;
     	  this.second=second;
+    	  this.winCom=winCom;
       }
       
 	public Date getComTime() {

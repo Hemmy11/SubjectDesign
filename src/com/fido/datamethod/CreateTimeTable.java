@@ -98,10 +98,10 @@ public class CreateTimeTable {
 	  }
 	
         public static void main(String[] args) throws FileNotFoundException, IOException, ClassNotFoundException, ParseException {
-        	      CreateTimeTable ctt=new CreateTimeTable(8);
-        	      ctt.create(8);
+        	      CreateTimeTable ctt=new CreateTimeTable(16);
+        	      ctt.create(16);
         		  ObjectInputStream in=new ObjectInputStream(new FileInputStream("F://测试//选手资料")); //反序列化
-        		      for(int i=0;i<8;i++){
+        		      for(int i=0;i<16;i++){
         		    	     Competitor com=(Competitor) in.readObject();//读取对象
         		    	     ctt.getMap().put(i+1,com);
         	      }
@@ -111,7 +111,7 @@ public class CreateTimeTable {
         		      Date[] time=new Date[ctt.getCompetitor().length-1];//比赛天数=选手数-1
         		      DateFormat format=DateFormat.getDateInstance();//用来生成时间
         		      for(int j=0;j<time.length;j++){
-        		    	   String str="2016-12-0"+String.valueOf(j+1);
+        		    	   String str="2016-12-"+String.valueOf(j+1);
         		    	   time[j]=format.parse(str);
         		      }
         		      for(int i=0;i<ctt.getComInstance().length;i++){
