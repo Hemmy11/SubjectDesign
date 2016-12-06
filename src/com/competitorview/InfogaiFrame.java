@@ -26,6 +26,9 @@ import com.mainview.RadioPanel;
 public class InfogaiFrame extends JFrame{
 	private JTextField nametextField;
 	private JTextField addresstextField;
+	public JFrame getFrame(){
+		return this;
+	}
 
 	/**
 	 * Launch the application.
@@ -128,11 +131,9 @@ public class InfogaiFrame extends JFrame{
 		panel.add(yesButton);
 		yesButton.addActionListener(new ActionListener(){
 			@Override
-			public void actionPerformed(ActionEvent e) {
-		 int n=JOptionPane.showConfirmDialog(null, "修改成功","修改信息",JOptionPane.DEFAULT_OPTION);
-
-				
-				
+			public void actionPerformed(ActionEvent e) { //修改信息的确定按钮
+		        JOptionPane.showMessageDialog(null,"修改成功！");
+		
 			}
 		});
 		
@@ -153,7 +154,8 @@ public class InfogaiFrame extends JFrame{
 		button.setBackground(Color.LIGHT_GRAY);
 		button.setFont(new Font("微软雅黑", Font.PLAIN, 16));
 		button.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+			public void actionPerformed(ActionEvent e) { //取消按钮
+				        getFrame().setVisible(false);
 			}
 		});
 		button.setBounds(257, 234, 93, 23);

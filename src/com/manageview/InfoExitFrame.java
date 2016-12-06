@@ -26,6 +26,54 @@ import com.mainview.RadioPanel;
  */
 public class InfoExitFrame extends JFrame{
 	private JTextField nametextField;//姓名
+	public JTextField getNametextField() {
+		return nametextField;
+	}
+
+	public void setNametextField(JTextField nametextField) {
+		this.nametextField = nametextField;
+	}
+
+	public JTextField getAddresstextField() {
+		return addresstextField;
+	}
+
+	public void setAddresstextField(JTextField addresstextField) {
+		this.addresstextField = addresstextField;
+	}
+
+	public JLabel getPhotoShowLabel() {
+		return photoShowLabel;
+	}
+
+	public void setPhotoShowLabel(JLabel photoShowLabel) {
+		this.photoShowLabel = photoShowLabel;
+	}
+
+	public JRadioButton getMan() {
+		return man;
+	}
+
+	public void setMan(JRadioButton man) {
+		this.man = man;
+	}
+
+	public JRadioButton getLady() {
+		return lady;
+	}
+
+	public void setLady(JRadioButton lady) {
+		this.lady = lady;
+	}
+
+	public JComboBox getComboBox() {
+		return comboBox;
+	}
+
+	public void setComboBox(JComboBox comboBox) {
+		this.comboBox = comboBox;
+	}
+
 	private JTextField addresstextField;//地址
 	private FileChooser filechoose;
 	private File filepath;//照片的路径
@@ -219,7 +267,11 @@ public class InfoExitFrame extends JFrame{
 		button.setBackground(Color.LIGHT_GRAY);
 		button.setFont(new Font("微软雅黑", Font.PLAIN, 16));
 		button.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+			public void actionPerformed(ActionEvent e) { //取消按钮的事件监听
+				 getPhotoShowLable().setIcon(null);
+				 getNametextField().setText(null);
+				 getAddresstextField().setText(null);
+				 
 			}
 		});
 		button.setBounds(268, 405, 93, 23);

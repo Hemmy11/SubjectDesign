@@ -25,27 +25,35 @@ import com.manageview.InfoExitFrame;
 public class CompetitorMFrame {
 
 	private JFrame frame;
+	public JFrame getFrame() {
+		return frame;
+	}
+
+	public void setFrame(JFrame frame) {
+		this.frame = frame;
+	}
+
 	private CardLayout card;
 	private JPanel panel;
 
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					String lookAndFeel ="com.sun.java.swing.plaf.windows.WindowsClassicLookAndFeel";
-					UIManager.setLookAndFeel(lookAndFeel);
-					CompetitorMFrame window = new CompetitorMFrame();
-					window.frame.setVisible(true);
-					window.frame.setResizable(false);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+//	public static void main(String[] args) {
+//		EventQueue.invokeLater(new Runnable() {
+//			public void run() {
+//				try {
+//					String lookAndFeel ="com.sun.java.swing.plaf.windows.WindowsClassicLookAndFeel";
+//					UIManager.setLookAndFeel(lookAndFeel);
+//					CompetitorMFrame window = new CompetitorMFrame();
+//					window.frame.setVisible(true);
+//					window.frame.setResizable(false);
+//				} catch (Exception e) {
+//					e.printStackTrace();
+//				}
+//			}
+//		});
+//	}
 
 	/**
 	 * Create the application.

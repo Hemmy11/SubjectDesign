@@ -1,8 +1,8 @@
 package com.hemmy.SubjectDesign.Model;
 /**
  * @author Hemmy
- * mean:选手类,包含选手归属的比赛，编号，选手积分以及选手的信息
- * function:用于选手对应比赛的存储，
+ * mean:閫夋墜绫�,鍖呭惈閫夋墜褰掑睘鐨勬瘮璧涳紝缂栧彿锛岄�夋墜绉垎浠ュ強閫夋墜鐨勪俊鎭�
+ * function:鐢ㄤ簬閫夋墜瀵瑰簲姣旇禌鐨勫瓨鍌紝
  */
 public class Competitor {
 	private String id;
@@ -12,7 +12,7 @@ public class Competitor {
 	
 	public Competitor(int id,ComMessage message,Competition competition){
 		this.id = competition.getId()+"m"+id;
-		this.password = message.getAge()+this.id;//由年龄与编号生成初始密码；
+		this.password = message.getAge()+this.id;//鐢卞勾榫勪笌缂栧彿鐢熸垚鍒濆瀵嗙爜锛�
 		this.message = message;
 		this.competition = competition;
 	}

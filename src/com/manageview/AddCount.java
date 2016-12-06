@@ -26,6 +26,12 @@ public class AddCount extends JPanel{
 	private JButton comTimeButton;
 	private JButton yesButton;
 	private JTextField comName;
+	public JTextField getComName() {
+		return comName;
+	}
+	public void setComName(JTextField comName) {
+		this.comName = comName;
+	}
 	private JLabel newcomLabel;
       public AddCount(){
     	  init();
@@ -76,6 +82,9 @@ public class AddCount extends JPanel{
     			@Override
     			public void actionPerformed(ActionEvent e) {
     				 int n=JOptionPane.showConfirmDialog(null, "创建成功","创建信息",JOptionPane.DEFAULT_OPTION);
+    				 if(n==JOptionPane.YES_OPTION){
+    					       getComName().setText(null);
+    				 }
 
     				
     			}
@@ -87,31 +96,31 @@ public class AddCount extends JPanel{
     		comTimeButton.setBounds(314, 29, 110, 23);
     		comTimeButton.setBackground(Color.LIGHT_GRAY);
     		this.add(comTimeButton);
-//    		comTimeButton.addActionListener(new ActionListener(){
-//    			@Override
-//    			public void actionPerformed(ActionEvent e) {
-//    				Object[] possibleValues = { "循环赛制", "淘汰赛制"};
-//    				Object selectedValue = JOptionPane.showInputDialog(null, 
-//    				"请选择赛制", "选择赛制种类",
-//    				JOptionPane.INFORMATION_MESSAGE, null,
-//    				possibleValues, possibleValues[0]);
-//    				if(selectedValue==null){
-//    					return;
-//    				}
-//    				else{   //判断是否为空，在来创建对象，不然覆盖界面
-//
-//        				if(selectedValue.equals(possibleValues[0])){
-//        
-//        				}
-//        				else if(selectedValue.equals(possibleValues[1])){
-// 
-//        				}
-//                    }
-//    				
-//    				
-//    				
-//    			}
-//    		});
+    		comTimeButton.addActionListener(new ActionListener(){
+    			@Override
+    			public void actionPerformed(ActionEvent e) {
+    				Object[] possibleValues = { "循环赛制", "淘汰赛制"};
+    				Object selectedValue = JOptionPane.showInputDialog(null, 
+    				"请选择赛制", "选择赛制种类",
+    				JOptionPane.INFORMATION_MESSAGE, null,
+    				possibleValues, possibleValues[0]);
+    				if(selectedValue==null){
+    					return;
+    				}
+    				else{   //判断是否为空，在来创建对象，不然覆盖界面
+
+        				if(selectedValue.equals(possibleValues[0])){
+        
+        				}
+        				else if(selectedValue.equals(possibleValues[1])){
+ 
+        				}
+                    }
+    				
+    				
+    				
+    			}
+    		});
     		
     		 countLabel = new JLabel("\u5DF2\u5F55\u5165\u4EBA\u6570\uFF1A\u00D7\u00D7");
     		countLabel.setFont(new Font("微软雅黑", Font.PLAIN, 13));

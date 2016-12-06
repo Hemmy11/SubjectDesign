@@ -12,12 +12,14 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 import javax.swing.UIManager;
 
+import com.competitorview.CompetitorMFrame;
 import com.manageview.ManageFrame;
 
 public class MainFrame {
@@ -119,7 +121,7 @@ public class MainFrame {
 		lgButton.addActionListener(new ActionListener(){  //登录按钮的注册监听
 			 @Override
 			public void actionPerformed(ActionEvent e) {
-				  if(mRbutton.isSelected()){
+				  if(mRbutton.isSelected()){ //管理员登录
 					   if(username.getText().equals("admin")){
 						       if(String.valueOf(passwordField.getPassword()).equals("admin")){ //字节数组转换为字符串先
 						    	                 frame.setVisible(false);
@@ -127,8 +129,20 @@ public class MainFrame {
 						    	                 mf.getFrame().setVisible(true);
 						    	                 mf.getFrame().setResizable(false);
 						       }
+						       else
+						    	   JOptionPane.showMessageDialog(null,"密码错误！");
 					   }
+					   else
+						   JOptionPane.showMessageDialog(null,"用户名错误！");
 				  }
+				  else if(sRbutton.isSelected()){ //选手登录
+				getFrame().setVisible(false);
+				CompetitorMFrame window = new CompetitorMFrame();
+				window.getFrame().setVisible(true);
+				window.getFrame().setResizable(false);
+				  }
+				  else
+					  JOptionPane.showMessageDialog(null,"请选择登录用户的类型！");
 				
 			}
 		});
