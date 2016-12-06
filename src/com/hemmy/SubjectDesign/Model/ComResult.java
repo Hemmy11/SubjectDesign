@@ -2,9 +2,6 @@ package com.hemmy.SubjectDesign.Model;
 
 import java.util.ArrayList;
 
-import com.hemmy.SubjectDesign.BLL.Competitor;
-import com.hemmy.SubjectDesign.BLL.MatchMessage;
-
 /**
  * @author Hemmy
  * mean:比赛 结果类，包含归属的比赛，比赛的排名，满分人员
