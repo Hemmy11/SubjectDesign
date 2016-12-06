@@ -7,7 +7,7 @@ import java.util.ArrayList;
  * mean:比赛 结果类，包含归属的比赛，比赛的排名，满分人员
  * function:用于比赛结果查询
  */
-public class ComResult {
+public class ComResult implements com.hemmy.SubjectDesign.BLL.ComResult{
 	private Competition competition;
 	public Competition getCompetition() {
 		return competition;
@@ -39,6 +39,24 @@ public class ComResult {
 	public ComResult(){
 		rankList = new ArrayList<Rank>();
 		fullList = new ArrayList<FullMark>();
+	}
+
+	@Override
+	public ArrayList<Rank> getForRank(ArrayList<com.hemmy.SubjectDesign.Model.Competitor> mm) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ArrayList<FullMark> getFullMark(ArrayList<com.hemmy.SubjectDesign.Model.Competitor> mm) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ArrayList<Rank> getOutRank(ArrayList<com.hemmy.SubjectDesign.Model.MatchMessage> mm) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
