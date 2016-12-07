@@ -20,24 +20,144 @@ import com.mainview.RadioPanel;
 
 /**
  * 
- * 选手修改信息
+ * 选手修改信息，有些信息不能修改
  *
  */
 public class InfogaiFrame extends JFrame{
-	private JTextField nametextField;
-	private JTextField addresstextField;
+	private JTextField nametextField;//名字输入框
+	private JTextField addresstextField;//地址输入框
+	private JPanel panel;
+	private JLabel nameLabel;
+	private JLabel sexLabel ;
+	private JComboBox comboBox;//年龄下拉框
+	private RadioPanel rp;//单选框组
+	private JRadioButton man;//男单选框
+	private JRadioButton lady;//女单选框
+	private JLabel ageLabel;
+	private JLabel addreLabel;
+	private JButton yesButton;//确定按钮
+	private JLabel titleLabel;
+	private JButton cancelButton;//取消按钮
+	
+	
+	
+	
+	public JTextField getNametextField() {
+		return nametextField;
+	}
+
+	public void setNametextField(JTextField nametextField) {
+		this.nametextField = nametextField;
+	}
+
+	public JTextField getAddresstextField() {
+		return addresstextField;
+	}
+
+	public void setAddresstextField(JTextField addresstextField) {
+		this.addresstextField = addresstextField;
+	}
+
+	public JPanel getPanel() {
+		return panel;
+	}
+
+	public void setPanel(JPanel panel) {
+		this.panel = panel;
+	}
+
+	public JLabel getNameLabel() {
+		return nameLabel;
+	}
+
+	public void setNameLabel(JLabel nameLabel) {
+		this.nameLabel = nameLabel;
+	}
+
+	public JLabel getSexLabel() {
+		return sexLabel;
+	}
+
+	public void setSexLabel(JLabel sexLabel) {
+		this.sexLabel = sexLabel;
+	}
+
+	public JComboBox getComboBox() {
+		return comboBox;
+	}
+
+	public void setComboBox(JComboBox comboBox) {
+		this.comboBox = comboBox;
+	}
+
+	public RadioPanel getRp() {
+		return rp;
+	}
+
+	public void setRp(RadioPanel rp) {
+		this.rp = rp;
+	}
+
+	public JRadioButton getMan() {
+		return man;
+	}
+
+	public void setMan(JRadioButton man) {
+		this.man = man;
+	}
+
+	public JRadioButton getLady() {
+		return lady;
+	}
+
+	public void setLady(JRadioButton lady) {
+		this.lady = lady;
+	}
+
+	public JLabel getAgeLabel() {
+		return ageLabel;
+	}
+
+	public void setAgeLabel(JLabel ageLabel) {
+		this.ageLabel = ageLabel;
+	}
+
+	public JLabel getAddreLabel() {
+		return addreLabel;
+	}
+
+	public void setAddreLabel(JLabel addreLabel) {
+		this.addreLabel = addreLabel;
+	}
+
+	public JButton getYesButton() {
+		return yesButton;
+	}
+
+	public void setYesButton(JButton yesButton) {
+		this.yesButton = yesButton;
+	}
+
+	public JLabel getTitleLabel() {
+		return titleLabel;
+	}
+
+	public void setTitleLabel(JLabel titleLabel) {
+		this.titleLabel = titleLabel;
+	}
+
+	public JButton getButton() {
+		return cancelButton;
+	}
+
+	public void setButton(JButton button) {
+		this.cancelButton = button;
+	}
+
 	public JFrame getFrame(){
 		return this;
 	}
-
-	/**
-	 * Launch the application.
-	 */
-
-
-	/**
-	 * Create the application.
-	 */
+    
 	public InfogaiFrame() {
 		initialize();
 	}
@@ -50,12 +170,12 @@ public class InfogaiFrame extends JFrame{
 		this.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 		this.getContentPane().setLayout(null);
 		
-		JPanel panel = new JPanel();
+		panel = new JPanel();
 		panel.setBounds(0, 0, 434, 261);
 		this.getContentPane().add(panel);
 		panel.setLayout(null);
 		
-		JLabel nameLabel = new JLabel("\u59D3\u540D\uFF1A");
+		nameLabel = new JLabel("\u59D3\u540D\uFF1A");
 		nameLabel.setFont(new Font("微软雅黑", Font.PLAIN, 16));
 		nameLabel.setBounds(120, 48, 48, 17);
 		panel.add(nameLabel);
@@ -67,18 +187,18 @@ public class InfogaiFrame extends JFrame{
 		nametextField.setText("郑海敏");
 		nametextField.setEditable(false);
 		
-		JLabel sexLabel = new JLabel("性别：");
+		sexLabel = new JLabel("性别：");
 		sexLabel.setFont(new Font("微软雅黑", Font.PLAIN, 16));
 		sexLabel.setBounds(120, 103, 54, 15);
 		panel.add(sexLabel);
 		
-		RadioPanel rp=new RadioPanel();
+		rp=new RadioPanel();
 		rp.setBounds(178,100,151,27);
-		JRadioButton man=new JRadioButton("男");
+		man=new JRadioButton("男");
 		man.setBounds(18, 0, 43, 25);
 		man.setSelected(true);
 		man.setFont(new Font("微软雅黑", Font.PLAIN, 13));
-		JRadioButton lady=new JRadioButton("女");
+		lady=new JRadioButton("女");
 		lady.setBounds(86, 0, 42, 25);
 		lady.setFont(new Font("微软雅黑", Font.PLAIN, 13));
 		lady.setEnabled(false);;
@@ -89,19 +209,19 @@ public class InfogaiFrame extends JFrame{
 		rp.getBtnGroup().add(lady);
 		panel.add(rp);
 		
-		JLabel ageLabel = new JLabel("\u5E74\u9F84\uFF1A");
+	    ageLabel = new JLabel("\u5E74\u9F84\uFF1A");
 		ageLabel.setFont(new Font("微软雅黑", Font.PLAIN, 16));
 		ageLabel.setBounds(120, 150, 54, 15);
 		panel.add(ageLabel);
 		
-		JComboBox comboBox = new JComboBox();
+		comboBox = new JComboBox();
 		comboBox.setFont(new Font("微软雅黑", Font.PLAIN, 13));
 		comboBox.setBounds(178, 150, 151, 17);
 		
 		comboBox.addItem("25");
 		panel.add(comboBox);
 		
-		JLabel addreLabel = new JLabel("\u5730\u5740\uFF1A");
+		addreLabel = new JLabel("\u5730\u5740\uFF1A");
 		addreLabel.setFont(new Font("微软雅黑", Font.PLAIN, 16));
 		addreLabel.setBounds(120, 200, 103, 15);
 		panel.add(addreLabel);
@@ -112,18 +232,9 @@ public class InfogaiFrame extends JFrame{
 		addresstextField.setColumns(10);
 		addresstextField.setText("G5-504D");
 		
-//		JLabel photoLabel = new JLabel("\u7167\u7247\uFF1A");
-//		photoLabel.setFont(new Font("微软雅黑", Font.PLAIN, 16));
-//		photoLabel.setBounds(120, 182, 54, 15);
-//		panel.add(photoLabel);
-//		
-//		JButton photoButton = new JButton("\u7167\u7247\u9009\u62E9");
-//		photoButton.setFont(new Font("微软雅黑", Font.PLAIN, 12));
-//		photoButton.setBounds(257, 188, 93, 23);
-//		photoButton.setBackground(Color.LIGHT_GRAY);
-//		panel.add(photoButton);
+
 		
-		JButton yesButton = new JButton("\u786E\u5B9A");
+		yesButton = new JButton("\u786E\u5B9A");
 		yesButton.setFont(new Font("微软雅黑", Font.PLAIN, 16));
 		yesButton.setBounds(120, 234, 93, 23);
 		yesButton.setBackground(Color.LIGHT_GRAY);
@@ -132,34 +243,30 @@ public class InfogaiFrame extends JFrame{
 		yesButton.addActionListener(new ActionListener(){
 			@Override
 			public void actionPerformed(ActionEvent e) { //修改信息的确定按钮
-		        JOptionPane.showMessageDialog(null,"修改成功！");
+				 int n=JOptionPane.showConfirmDialog(null, "修改成功","修改信息",JOptionPane.DEFAULT_OPTION);
+				 if(n==JOptionPane.YES_OPTION){
+					    getFrame().setVisible(false);
+				 }
+		        
 		
 			}
 		});
 		
-		JLabel titleLabel = new JLabel("选手信息修改");
+		titleLabel = new JLabel("选手信息修改");
 		titleLabel.setFont(new Font("微软雅黑", Font.PLAIN, 22));
 		titleLabel.setBounds(178, 10, 151, 27);
 		panel.add(titleLabel);
 		
-//		JLabel photoShowLabel = new JLabel("");
-//		photoShowLabel.setBounds(178, 172, 69, 52);
-//	   	ImageIcon icon = new ImageIcon("D:\\素材\\22.jpg");
-//	    icon.setImage(icon.getImage().getScaledInstance(icon.getIconWidth(),
-//	    icon.getIconHeight(), Image.SCALE_DEFAULT));
-//	    photoShowLabel.setIcon(icon);
-//		panel.add(photoShowLabel);
-//		
-		JButton button = new JButton("\u53D6\u6D88");
-		button.setBackground(Color.LIGHT_GRAY);
-		button.setFont(new Font("微软雅黑", Font.PLAIN, 16));
-		button.addActionListener(new ActionListener() {
+		cancelButton = new JButton("\u53D6\u6D88");
+		cancelButton.setBackground(Color.LIGHT_GRAY);
+		cancelButton.setFont(new Font("微软雅黑", Font.PLAIN, 16));
+		cancelButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) { //取消按钮
 				        getFrame().setVisible(false);
 			}
 		});
-		button.setBounds(257, 234, 93, 23);
-		panel.add(button);
+		cancelButton.setBounds(257, 234, 93, 23);
+		panel.add(cancelButton);
 		
 	}
 }

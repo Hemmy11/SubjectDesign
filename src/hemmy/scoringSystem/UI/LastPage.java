@@ -96,7 +96,6 @@ public class LastPage extends JFrame implements ActionListener{
 		exit.setPreferredSize(new Dimension(250, 30));
 		another.addActionListener(this);
 		exit.addActionListener(this);
-		jp_footer.add(another);
 		jp_footer.add(exit);
 		lastPagePanel.setLayout(new BorderLayout());
 		lastPagePanel.add(jp_header, BorderLayout.NORTH);
@@ -109,17 +108,10 @@ public class LastPage extends JFrame implements ActionListener{
 
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
-		if(e.getSource().equals(another)){
+	 if (e.getSource().equals(exit)){
 			new hemmy.scoringSystem.DAL.Player().deletePlayer();
 			new hemmy.scoringSystem.DAL.SumScore().deleteSum();
 			this.dispose();
-			//ÇÐ»»µ½ÆðÊ¼Ò³
-			WelcomePage wp = new WelcomePage();
-			wp.setVisible(true);
-		}else if (e.getSource().equals(exit)){
-			new hemmy.scoringSystem.DAL.Player().deletePlayer();
-			new hemmy.scoringSystem.DAL.SumScore().deleteSum();
-			System.exit(0);
 		}
 	}
 

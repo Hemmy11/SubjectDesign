@@ -9,7 +9,7 @@ public class Scoring {
 	public void writeScoring(hemmy.scoringSystem.Model.Scoring scoring) throws IOException{
 		StringBuffer str = new StringBuffer(" ");
 		str.append("第"+scoring.getTime()+"轮得分情况为:"+scoring.getFirScore()+" "+scoring.getSecScore());
-		out = new OutputStreamWriter(new FileOutputStream("c:/score.txt",true));
+		out = new OutputStreamWriter(new FileOutputStream("d:/score.txt",true));
 		out.write(str.toString());
 		out.flush();
 		out.close();

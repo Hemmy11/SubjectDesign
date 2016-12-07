@@ -1,19 +1,26 @@
-package com.fido.table;
+package com.fido.manageTable;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Font;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.AbstractCellEditor;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JOptionPane;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTable;
 import javax.swing.table.TableCellEditor;
-
+/**
+ * 
+ * 对应管理员查看选手照片的button
+ *
+ */
 public class MyButtonEditor extends AbstractCellEditor implements
 TableCellEditor {
 
@@ -39,8 +46,21 @@ private void initButton() {
 button = new JButton();
 
 button.addActionListener(new ActionListener() {
-    public void actionPerformed(ActionEvent e) {  //按下查看按钮出照片
-           
+    public void actionPerformed(ActionEvent e) {  //按下查看按钮出对应选手照片
+              JFrame jf=new JFrame();
+              JPanel panel=new JPanel();
+              panel.setSize(200,200);
+              jf.getContentPane().add(panel);
+              JLabel photoLabel=new JLabel();
+              ImageIcon image=new ImageIcon("D://PPT素材//蓝色.jpg");
+              jf.setBounds(600,300,200,200);
+              image.setImage(image.getImage().getScaledInstance(jf.getWidth(),jf.getHeight(),Image.SCALE_DEFAULT)); 
+              photoLabel.setIcon(image);
+              panel.add(photoLabel);
+              jf.setVisible(true);
+              jf.setResizable(false);
+  
+              
 
     }
 });
@@ -59,6 +79,7 @@ public Component getTableCellEditorComponent(JTable table, Object value,
 
 button.setText("查看");
 button.setFont(new Font("微软雅黑", Font.BOLD, 12));
+button.setBackground(Color.LIGHT_GRAY);
 
 return panel;
 }

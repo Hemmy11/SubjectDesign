@@ -1,4 +1,4 @@
-package com.fido.table;
+package com.fido.manageTable;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -40,6 +40,7 @@ public class MyButtonRenderer implements TableCellRenderer {
         
         button.setText("²é¿´");
         button.setFont(new Font("Î¢ÈíÑÅºÚ", Font.BOLD, 12));
+        button.setBackground(Color.LIGHT_GRAY);
 
         return panel;
     }

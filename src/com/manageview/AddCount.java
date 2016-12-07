@@ -12,20 +12,61 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import com.fido.table.TestTable;
 /**
  * 
- * 选手录入
+ * 选手录入按钮之后的界面
  *
  */
 public class AddCount extends JPanel{
-	private JComboBox comboBox;
+	public JComboBox getComboBox() {
+		return comboBox;
+	}
+	public void setComboBox(JComboBox comboBox) {
+		this.comboBox = comboBox;
+	}
+	public JLabel getSelectLabel() {
+		return selectLabel;
+	}
+	public void setSelectLabel(JLabel selectLabel) {
+		this.selectLabel = selectLabel;
+	}
+	public JButton getAddButton() {
+		return addButton;
+	}
+	public void setAddButton(JButton addButton) {
+		this.addButton = addButton;
+	}
+	public JLabel getCountLabel() {
+		return countLabel;
+	}
+	public void setCountLabel(JLabel countLabel) {
+		this.countLabel = countLabel;
+	}
+	public JButton getComTimeButton() {
+		return comTimeButton;
+	}
+	public void setComTimeButton(JButton comTimeButton) {
+		this.comTimeButton = comTimeButton;
+	}
+	public JButton getYesButton() {
+		return yesButton;
+	}
+	public void setYesButton(JButton yesButton) {
+		this.yesButton = yesButton;
+	}
+	public JLabel getNewcomLabel() {
+		return newcomLabel;
+	}
+	public void setNewcomLabel(JLabel newcomLabel) {
+		this.newcomLabel = newcomLabel;
+	}
+	private JComboBox comboBox; //选择比赛的名称的下拉框
 	private JLabel selectLabel;
-	private JButton addButton;
-	private JLabel countLabel;
-	private JButton comTimeButton;
-	private JButton yesButton;
-	private JTextField comName;
+	private JButton addButton;//录入信息按钮
+	private JLabel countLabel;//显示已录入人数
+	private JButton comTimeButton;//生成日程表按钮
+	private JButton yesButton;//确定创建比赛的按钮
+	private JTextField comName;//创建比赛时输入比赛名
 	public JTextField getComName() {
 		return comName;
 	}
@@ -53,7 +94,7 @@ public class AddCount extends JPanel{
     		this.add(addButton);
     		addButton.addActionListener(new ActionListener(){
     			@Override
-    			public void actionPerformed(ActionEvent e) { //按下了录入信息
+    			public void actionPerformed(ActionEvent e) { //按下了录入信息，弹出录入选手信息的详细界面
     				InfoExitFrame ief=new InfoExitFrame();
     				ief.setVisible(true);
     				ief.setResizable(false);
@@ -80,7 +121,7 @@ public class AddCount extends JPanel{
     		this.add(yesButton);
     		yesButton.addActionListener(new ActionListener(){
     			@Override
-    			public void actionPerformed(ActionEvent e) {
+    			public void actionPerformed(ActionEvent e) { //输入比赛名，创建比赛的事件监听
     				 int n=JOptionPane.showConfirmDialog(null, "创建成功","创建信息",JOptionPane.DEFAULT_OPTION);
     				 if(n==JOptionPane.YES_OPTION){
     					       getComName().setText(null);
@@ -98,7 +139,7 @@ public class AddCount extends JPanel{
     		this.add(comTimeButton);
     		comTimeButton.addActionListener(new ActionListener(){
     			@Override
-    			public void actionPerformed(ActionEvent e) {
+    			public void actionPerformed(ActionEvent e) { //生成日程表的事件监听
     				Object[] possibleValues = { "循环赛制", "淘汰赛制"};
     				Object selectedValue = JOptionPane.showInputDialog(null, 
     				"请选择赛制", "选择赛制种类",
@@ -107,14 +148,15 @@ public class AddCount extends JPanel{
     				if(selectedValue==null){
     					return;
     				}
-    				else{   //判断是否为空，在来创建对象，不然覆盖界面
+    				else{  
 
-        				if(selectedValue.equals(possibleValues[0])){
+        				if(selectedValue.equals(possibleValues[0])){ //循环赛制
         
         				}
-        				else if(selectedValue.equals(possibleValues[1])){
+        				else if(selectedValue.equals(possibleValues[1])){//淘汰赛制
  
         				}
+        				JOptionPane.showMessageDialog(null,"生成日程表成功！");
                     }
     				
     				

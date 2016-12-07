@@ -25,6 +25,72 @@ import com.manageview.InfoExitFrame;
 public class CompetitorMFrame {
 
 	private JFrame frame;
+	public JPanel getUpPanel() {
+		return upPanel;
+	}
+
+	public void setUpPanel(JPanel upPanel) {
+		this.upPanel = upPanel;
+	}
+
+	public JButton getExitButton() {
+		return exitButton;
+	}
+
+	public void setExitButton(JButton exitButton) {
+		this.exitButton = exitButton;
+	}
+
+	public JButton getFindRButton() {
+		return findRButton;
+	}
+
+	public void setFindRButton(JButton findRButton) {
+		this.findRButton = findRButton;
+	}
+
+	public JButton getFindCButton() {
+		return findCButton;
+	}
+
+	public void setFindCButton(JButton findCButton) {
+		this.findCButton = findCButton;
+	}
+
+	public JLabel getLabel() {
+		return label;
+	}
+
+	public void setLabel(JLabel label) {
+		this.label = label;
+	}
+
+	public JLabel getPhotoLable() {
+		return photoLable;
+	}
+
+	public void setPhotoLable(JLabel photoLable) {
+		this.photoLable = photoLable;
+	}
+
+	public ImageIcon getIcon() {
+		return icon;
+	}
+
+	public void setIcon(ImageIcon icon) {
+		this.icon = icon;
+	}
+
+	private JPanel upPanel;
+	private JButton exitButton;//修改信息按钮
+	private JButton findRButton;//查询结果按钮
+	private JButton findCButton;//查询比赛日程按钮
+	private JLabel label;
+	private JLabel photoLable;//用于显示照片
+	private ImageIcon icon;//图片
+	
+	
+	
 	public JFrame getFrame() {
 		return frame;
 	}
@@ -35,29 +101,6 @@ public class CompetitorMFrame {
 
 	private CardLayout card;
 	private JPanel panel;
-
-	/**
-	 * Launch the application.
-	 */
-//	public static void main(String[] args) {
-//		EventQueue.invokeLater(new Runnable() {
-//			public void run() {
-//				try {
-//					String lookAndFeel ="com.sun.java.swing.plaf.windows.WindowsClassicLookAndFeel";
-//					UIManager.setLookAndFeel(lookAndFeel);
-//					CompetitorMFrame window = new CompetitorMFrame();
-//					window.frame.setVisible(true);
-//					window.frame.setResizable(false);
-//				} catch (Exception e) {
-//					e.printStackTrace();
-//				}
-//			}
-//		});
-//	}
-
-	/**
-	 * Create the application.
-	 */
 	public CompetitorMFrame() {
 		initialize();
 	}
@@ -72,15 +115,15 @@ public class CompetitorMFrame {
 		frame.getContentPane().setLayout(null);
 		
 		
-		JPanel upPanel = new JPanel();
+		upPanel = new JPanel();
 		upPanel.setBounds(0, 0, 434, 78);
 		frame.getContentPane().add(upPanel);
 		upPanel.setLayout(null);
 		
-		JButton exitButton = new JButton("\u4FEE\u6539\u4FE1\u606F");
+		exitButton = new JButton("\u4FEE\u6539\u4FE1\u606F");
 		exitButton.setBackground(Color.LIGHT_GRAY);
 		exitButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+			public void actionPerformed(ActionEvent e) { //修改信息的事件监听
 				InfogaiFrame ief=new InfogaiFrame();
                 ief.setVisible(true);
                 ief.setResizable(false);
@@ -92,12 +135,12 @@ public class CompetitorMFrame {
 		exitButton.setFont(new Font("微软雅黑", Font.PLAIN, 12));
 		upPanel.add(exitButton);
 		
-		JButton findRButton = new JButton("\u67E5\u8BE2\u7ED3\u679C");
+		findRButton = new JButton("\u67E5\u8BE2\u7ED3\u679C");
 		findRButton.setBackground(Color.LIGHT_GRAY);
 		findRButton.setBounds(122, 40, 88, 27);
 		findRButton.setFont(new Font("微软雅黑", Font.PLAIN, 12));
 		upPanel.add(findRButton);
-		findRButton.addActionListener(new ActionListener(){
+		findRButton.addActionListener(new ActionListener(){ //查找结果的事件监听
 			@Override
 			public void actionPerformed(ActionEvent e) {
 			    ResultCompetitorFrame rcf=new ResultCompetitorFrame();
@@ -110,12 +153,12 @@ public class CompetitorMFrame {
 			}
 		});
 		
-		JButton findCButton = new JButton("\u6BD4\u8D5B\u65E5\u7A0B");
+	    findCButton = new JButton("\u6BD4\u8D5B\u65E5\u7A0B");
 		findCButton.setBackground(Color.LIGHT_GRAY);
 		findCButton.setBounds(234, 40, 88, 27);
 		findCButton.setFont(new Font("微软雅黑", Font.PLAIN, 12));
 		upPanel.add(findCButton);
-		findCButton.addActionListener(new ActionListener(){
+		findCButton.addActionListener(new ActionListener(){ //查询比赛日程的事件监听
 			@Override
 			public void actionPerformed(ActionEvent e) {
 			  	CompetitorInfo downPanel=new CompetitorInfo();
@@ -125,20 +168,21 @@ public class CompetitorMFrame {
 			}
 		});
 		
-		JLabel label = new JLabel("\u4F60\u597D\uFF0C+\u7528\u6237\u540D");
+		label = new JLabel("\u4F60\u597D\uFF0C+\u7528\u6237\u540D");
 		label.setFont(new Font("微软雅黑", Font.PLAIN, 13));
 		label.setBounds(10, 10, 205, 15);
 	   	upPanel.add(label);
 	   	
-	   	JLabel photoLable = new JLabel("\u8FD9\u662F\u7167\u7247");
+	   	photoLable = new JLabel("\u8FD9\u662F\u7167\u7247");
 	   	photoLable.setFont(new Font("微软雅黑", Font.PLAIN, 12));
 	   	photoLable.setBackground(Color.WHITE);
 	   	photoLable.setBounds(343, 10, 81, 66);
 	   	upPanel.add(photoLable);
-	   	ImageIcon icon = new ImageIcon("D:\\素材\\22.jpg");
+	   	
+	   	icon = new ImageIcon("D:\\素材\\22.jpg"); //读取图片，设置图片
 	    icon.setImage(icon.getImage().getScaledInstance(icon.getIconWidth(),
 	    icon.getIconHeight(), Image.SCALE_DEFAULT));
-	    photoLable.setIcon(icon);
+	    photoLable.setIcon(icon);//把图片设置到label上
 	    
 	    card=new CardLayout();
 	    panel = new JPanel(card);

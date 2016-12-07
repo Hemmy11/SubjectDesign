@@ -1,12 +1,12 @@
-package com.fido.table;
+package com.fido.manageTable;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.EventQueue;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
-import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
@@ -14,11 +14,18 @@ import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
-
+/*
+ * 查询选手资料的界面
+ */
 public class TestTable extends JPanel {
 
 	private JScrollPane scrollPane;
     private JTable table;
+    private JTextField textField01;//输入姓名或者编号的文本框
+    private JComboBox comName;//选择比赛名字的下拉框
+    private JComboBox findcomboBox;//选择根据姓名还是编号查询的下拉框
+    private JButton findInfoButton;//查找按钮
+    private
     
     Object [] paramter={"姓名","编号","性别","年龄","地址","照片"}; //表头列名
 
@@ -70,21 +77,34 @@ public class TestTable extends JPanel {
    	 this.setLayout(new BorderLayout(0,0));
    	 scrollPane=new JScrollPane();
    	 this.add(scrollPane,BorderLayout.CENTER);
-		JTextField textField01 = new JTextField();
-		textField01.setBounds(88, 10, 66, 21);
+		textField01 = new JTextField();
+		textField01.setBounds(178, 10, 66, 21);
 		this.add(textField01);
 		textField01.setColumns(10);
 		
-		JComboBox findcomboBox = new JComboBox();
-		findcomboBox.setBounds(10, 10, 68, 21);
+ 	    comName =new JComboBox();
+ 		comName.setBounds(10,10,80,21);
+ 		comName.addItem("A比赛");
+ 		comName.addItem("B比赛");
+ 		this.add(comName);
+ 		
+		findcomboBox = new JComboBox();
+		findcomboBox.setBounds(100, 10, 68, 21);
 		findcomboBox.addItem("姓名");
 		findcomboBox.addItem("编号");
 		this.add(findcomboBox);
 		
-		JButton findInfoButton = new JButton("\u67E5\u627E");
-		findInfoButton.setBounds(164, 9, 73, 23);
+	    findInfoButton = new JButton("\u67E5\u627E");
+		findInfoButton.setBounds(254, 9, 73, 23);
 		findInfoButton.setBackground(Color.LIGHT_GRAY);
 		this.add(findInfoButton);
+		findInfoButton.addActionListener(new ActionListener(){
+			@Override
+			public void actionPerformed(ActionEvent e) {//按下查找按钮的事件监听，更新table数据
+			          
+				
+			}
+		});
 
         table = new JTable();
         

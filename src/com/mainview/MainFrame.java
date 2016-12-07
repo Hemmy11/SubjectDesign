@@ -21,18 +21,18 @@ import javax.swing.UIManager;
 
 import com.competitorview.CompetitorMFrame;
 import com.manageview.ManageFrame;
-
+//登录界面
 public class MainFrame {
 
 	private JFrame frame;
 	private JPanel upPanel;
-	private JTextField username;
+	private JTextField username;//用户名
 	private JLabel plabel;
-	private JLabel tittlelabel;
-	private JPasswordField passwordField;
-    private RadioPanel radioPanel;
-    private JRadioButton sRbutton;
-    private JRadioButton mRbutton;
+	private JLabel tittlelabel;//标题
+	private JPasswordField passwordField;//密码
+    private RadioPanel radioPanel;//返回一个单选框组
+    private JRadioButton sRbutton;//选手单选
+    private JRadioButton mRbutton;//管理员单选
 
 	/**
 	 * Launch the application.
@@ -137,7 +137,7 @@ public class MainFrame {
 				  }
 				  else if(sRbutton.isSelected()){ //选手登录
 				getFrame().setVisible(false);
-				CompetitorMFrame window = new CompetitorMFrame();
+				CompetitorMFrame window = new CompetitorMFrame(); //选手界面
 				window.getFrame().setVisible(true);
 				window.getFrame().setResizable(false);
 				  }

@@ -25,7 +25,21 @@ import com.mainview.RadioPanel;
  *
  */
 public class InfoExitFrame extends JFrame{
-	private JTextField nametextField;//姓名
+	public JFrame getFrame(){ //返回当前界面
+		return this;
+	}
+	
+	private JTextField nametextField;//姓名输入框
+	private JTextField addresstextField;//地址
+	private FileChooser filechoose;//选择文件的对话框
+	private File filepath;//照片的路径
+	private JLabel photoShowLabel;//显示照片
+	private JButton yesButton;//确定提交选手信息的按钮
+	private JRadioButton man;//男单选框
+	private JRadioButton lady;//女单选框
+	private JComboBox comboBox;//下拉框，选择年龄
+	private JButton photoButton;//照片选择按钮
+	private JButton cancelButton;//取消按钮
 	public JTextField getNametextField() {
 		return nametextField;
 	}
@@ -74,14 +88,7 @@ public class InfoExitFrame extends JFrame{
 		this.comboBox = comboBox;
 	}
 
-	private JTextField addresstextField;//地址
-	private FileChooser filechoose;
-	private File filepath;//照片的路径
-	private JLabel photoShowLabel;//显示照片
-	private JButton yesButton;//确定提交选手信息的按钮
-	public JRadioButton man;
-	public JRadioButton lady;
-	public JComboBox comboBox;//下拉框，选择年龄
+
 
 	public JButton getYesButton() {
 		return yesButton;
@@ -175,7 +182,7 @@ public class InfoExitFrame extends JFrame{
 		ageLabel.setBounds(120, 176, 54, 15);
 		panel.add(ageLabel);
 		
-		JComboBox comboBox = new JComboBox();
+	    comboBox = new JComboBox();
 		comboBox.setFont(new Font("微软雅黑", Font.PLAIN, 13));
 		comboBox.setBounds(178, 176, 151, 17);
 		
@@ -200,13 +207,13 @@ public class InfoExitFrame extends JFrame{
 		photoLabel.setBounds(120, 313, 54, 15);
 		panel.add(photoLabel);
 		
-		JButton photoButton = new JButton("\u7167\u7247\u9009\u62E9");
+	    photoButton = new JButton("\u7167\u7247\u9009\u62E9");
 		photoButton.setFont(new Font("微软雅黑", Font.PLAIN, 12));
 		photoButton.setBounds(320, 323, 93, 23); 
 		photoButton.setBackground(Color.LIGHT_GRAY); 
 		photoButton.addActionListener(new ActionListener(){  //为照片选择提供对话框
 			@Override
-			public void actionPerformed(ActionEvent e) {
+			public void actionPerformed(ActionEvent e) {//上传照片按钮的事件监听
 				      filechoose=new FileChooser();
 				     int option= filechoose.do_button_actionPerformed(e);
 				      filepath=filechoose.getFileChooser().getSelectedFile();
@@ -225,14 +232,14 @@ public class InfoExitFrame extends JFrame{
 		});
 		panel.add(photoButton);
 		
-		 yesButton = new JButton("\u786E\u5B9A");
+		yesButton = new JButton("\u786E\u5B9A");
 		yesButton.setFont(new Font("微软雅黑", Font.PLAIN, 16));
 		yesButton.setBounds(89, 405, 93, 23);
 		yesButton.setBackground(Color.LIGHT_GRAY);
 		panel.add(yesButton);
-		yesButton.addActionListener(new ActionListener(){
+		yesButton.addActionListener(new ActionListener(){  
 			@Override
-			public void actionPerformed(ActionEvent e) {
+			public void actionPerformed(ActionEvent e) {  //确定按钮的事件监听
 				
 				
 				
@@ -257,25 +264,37 @@ public class InfoExitFrame extends JFrame{
 		titleLabel.setBounds(159, 21, 151, 27);
 		panel.add(titleLabel);
 		
-		 photoShowLabel = new JLabel("");
-		photoShowLabel.setBounds(178, 283, 137, 111);
-	   	
-	    
+	    photoShowLabel = new JLabel("");
+		photoShowLabel.setBounds(178, 283, 137, 111);  
 		panel.add(photoShowLabel);
 		
-		JButton button = new JButton("\u53D6\u6D88");
-		button.setBackground(Color.LIGHT_GRAY);
-		button.setFont(new Font("微软雅黑", Font.PLAIN, 16));
-		button.addActionListener(new ActionListener() {
+	    cancelButton = new JButton("\u53D6\u6D88");
+		cancelButton.setBackground(Color.LIGHT_GRAY);
+		cancelButton.setFont(new Font("微软雅黑", Font.PLAIN, 16));
+		cancelButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) { //取消按钮的事件监听
-				 getPhotoShowLable().setIcon(null);
-				 getNametextField().setText(null);
-				 getAddresstextField().setText(null);
+			         getFrame().setVisible(false);
 				 
 			}
 		});
-		button.setBounds(268, 405, 93, 23);
-		panel.add(button);
+		cancelButton.setBounds(268, 405, 93, 23);
+		panel.add(cancelButton);
 		
+	}
+
+	public JButton getPhotoButton() {
+		return photoButton;
+	}
+
+	public void setPhotoButton(JButton photoButton) {
+		this.photoButton = photoButton;
+	}
+
+	public JButton getCancelButton() {
+		return cancelButton;
+	}
+
+	public void setCancelButton(JButton cancelButton) {
+		this.cancelButton = cancelButton;
 	}
 }

@@ -12,7 +12,9 @@ import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
-
+/*
+ * 对应于选手的查看对手信息
+ */
 public class CompetitorInfo extends JPanel {
 
 	private JScrollPane scrollPane;
@@ -107,10 +109,10 @@ public class CompetitorInfo extends JPanel {
         });
 
         table.getColumnModel().getColumn(4).setCellEditor(
-                new MyButtonEditor());
+                new ComButtonEditor());
 
         table.getColumnModel().getColumn(4).setCellRenderer(
-                new MyButtonRenderer());
+                new ComButtonRenderer());
 
         table.setRowSelectionAllowed(false);
         JTableHeader tableHeader = table.getTableHeader();

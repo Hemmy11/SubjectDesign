@@ -12,14 +12,14 @@ public class Player {
 		StringBuffer str = new StringBuffer(" ");
 		str.append("Íæ¼Ò "+player.getName());
 		str.append(" ID "+player.getId());
-		out = new OutputStreamWriter(new FileOutputStream("c:/score.txt",true));
+		out = new OutputStreamWriter(new FileOutputStream("d:/score.txt",true));
 		out.write(str.toString());
 		out.flush();
 		out.close();
 		
 	}
 	public void writeNull() throws IOException{
-		File file = new File("c:/scorePlayer.dat");		
+		File file = new File("d:/scorePlayer.dat");		
 		if(file.length()<1){
 			outObject = new ObjectOutputStream(new FileOutputStream(file,true));
 		}else{
@@ -32,7 +32,7 @@ public class Player {
 	}
 	
 	public void writePlayerUtil(hemmy.scoringSystem.Model.Player player) throws IOException{
-		File file = new File("c:/scorePlayer.dat");		
+		File file = new File("d:/scorePlayer.dat");		
 		if(file.length()<1){
 			outObject = new ObjectOutputStream(new FileOutputStream(file,true));
 		}else{
@@ -45,7 +45,7 @@ public class Player {
 	}
 	
 	public hemmy.scoringSystem.Model.Player readPlayer() throws IOException, ClassNotFoundException{
-		inObject = new ObjectInputStream(new FileInputStream("c:/scorePlayer.dat"));
+		inObject = new ObjectInputStream(new FileInputStream("d:/scorePlayer.dat"));
 		hemmy.scoringSystem.Model.Player player = (hemmy.scoringSystem.Model.Player)inObject.readObject();
 		inObject.close();
 		return player;
@@ -53,7 +53,7 @@ public class Player {
 	}
 	
 	public void deletePlayer(){
-		File file = new File("c:/scorePlayer.dat");	
+		File file = new File("d:/scorePlayer.dat");	
 		file.delete();
 	}
 	
