@@ -118,11 +118,8 @@ public class DayTable implements com.hemmy.SubjectDesign.BLL.DayTable{
 	           	   start=startSize;
 	              }
 			
+	            return this;
 		}
-			
-		
-		
-		return null;
 	}
 	@Override
 	public ArrayList<ComMessage> showDayTable(String name) {
