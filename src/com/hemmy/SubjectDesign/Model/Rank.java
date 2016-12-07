@@ -1,22 +1,24 @@
 package com.hemmy.SubjectDesign.Model;
 /**
  * @author Hemmy
- * mean:排名类，包含选手以及名次；
- * function:用于比赛排名查询；
+ * mean:鎺掑悕绫伙紝鍖呭惈閫夋墜浠ュ強鍚嶆锛�
+ * function:鐢ㄤ簬姣旇禌鎺掑悕鏌ヨ锛�
  */
 public class Rank {
-	private String competitor;
+	private Competitor competitor;
 	private int rank;
 	
 	public Rank(Competitor competitor,int rank){
-		this.competitor = competitor.getMessage().getName();
+		this.competitor =competitor;
 		this.rank = rank;
 	}
-
-	public String getCompetitor() {
+	public Rank() {
+		
+	}
+	public Competitor getCompetitor() {
 		return competitor;
 	}
-	public void setCompetitor(String competitor){
+	public void setCompetitor(Competitor competitor){
 		this.competitor = competitor;
 	}
 

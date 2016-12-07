@@ -4,11 +4,24 @@ import java.util.Date;
 
 /**
  * @author Hemmy
- * mean:对战信息类，包括对战时间，对战选手，对战胜负,对战选手得分
- * function:用于管理员生成日程表，以及查看对战信息
+ * mean:瀵规垬淇℃伅绫伙紝鍖呮嫭瀵规垬鏃堕棿锛屽鎴橀�夋墜锛屽鎴樿儨璐�,瀵规垬閫夋墜寰楀垎
+ * function:鐢ㄤ簬绠＄悊鍛樼敓鎴愭棩绋嬭〃锛屼互鍙婃煡鐪嬪鎴樹俊鎭�
  */
 public class MatchMessage implements com.hemmy.SubjectDesign.BLL.MatchMessage{
 	private Date date;
+	
+	public MatchMessage(Date date, Competitor com1, Competitor com2) {
+		super();
+		this.date = date;
+		this.com1 = com1;
+		this.com2 = com2;
+		this.com1Score =0;
+		this.com2Score = 0;
+		this.result = 0;
+	}
+	public MatchMessage() { 
+		
+	}
 	public Date getDate() {
 		return date;
 	}
@@ -49,7 +62,7 @@ public class MatchMessage implements com.hemmy.SubjectDesign.BLL.MatchMessage{
 	}
 	private int com1Score=0;
 	private int com2Score=0;
-	private int result=0;//0表示未比赛，1表示选手1获胜，2表示选手2获胜
+	private int result=0;//0琛ㄧず鏈瘮璧涳紝1琛ㄧず閫夋墜1鑾疯儨锛�2琛ㄧず閫夋墜2鑾疯儨
 	@Override
 	public void reviseComMessage() {
 		// TODO Auto-generated method stub

@@ -9,12 +9,14 @@ public class Competitor {
 	private ComMessage message;
 	private Competition competition;
 	private String password;
-	
 	public Competitor(int id,ComMessage message,Competition competition){
 		this.id = competition.getId()+"m"+id;
 		this.password = message.getAge()+this.id;//鐢卞勾榫勪笌缂栧彿鐢熸垚鍒濆瀵嗙爜锛�
 		this.message = message;
 		this.competition = competition;
+	}
+	public Competitor() {
+		
 	}
 	public String getId() {
 		return id;
